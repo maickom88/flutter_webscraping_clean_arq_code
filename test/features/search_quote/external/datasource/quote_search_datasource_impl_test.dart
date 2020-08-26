@@ -14,7 +14,7 @@ void main() {
 
   setUp(() {
     webScraper = WebScraper(UrlbaseConsts.urlBase);
-    datasource = QuoteSearchDatasource(webScraper);
+    datasource = QuoteSearchDatasource(webScraper: webScraper);
   });
   test('A class of type "List<QuoteModel>" must be returned', () async {
     final result = await datasource.getScrapyngQuote('pedro');

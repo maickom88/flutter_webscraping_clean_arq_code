@@ -1,12 +1,16 @@
-import 'package:frases_e_pensamentos/core/errors/failure.dart';
-import 'package:frases_e_pensamentos/features/search_quote/infra/datasources/quote_search_datasource.dart';
-import 'package:frases_e_pensamentos/features/search_quote/infra/models/quote_model.dart';
+import 'package:meta/meta.dart';
 import 'package:web_scraper/web_scraper.dart';
+
+import '../../../../core/errors/failure.dart';
 import '../../../../core/extensions/search_string_space.dart';
+import '../../infra/datasources/quote_search_datasource.dart';
+import '../../infra/models/quote_model.dart';
 
 class QuoteSearchDatasource implements IQuoteSearchDatasource {
   final WebScraper webScraper;
-  QuoteSearchDatasource(this.webScraper);
+  QuoteSearchDatasource({
+    @required this.webScraper,
+  });
 
   @override
   Future<List<QuoteModel>> getScrapyngQuote(String search) async {

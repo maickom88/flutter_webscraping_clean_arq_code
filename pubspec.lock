@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.1"
+  effective_dart:
+    dependency: "direct main"
+    description:
+      name: effective_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.4"
   equatable:
     dependency: "direct main"
     description:
@@ -94,7 +101,7 @@ packages:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.4.6"
+    version: "3.5.1"
   html:
     dependency: transitive
     description:

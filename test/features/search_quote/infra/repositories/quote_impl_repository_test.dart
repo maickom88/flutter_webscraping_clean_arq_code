@@ -16,7 +16,7 @@ void main() {
 
   setUp(() {
     datasource = MockQuoteSearchDatasource();
-    repository = QuoteImplRepository(datasource);
+    repository = QuoteImplRepository(quoteSearchDatasource: datasource);
   });
 
   final tsearch = 'Mario';

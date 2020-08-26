@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:frases_e_pensamentos/features/search_quote/domain/entities/quote.dart';
+import '../../domain/entities/quote.dart';
 
 class QuoteModel extends Quote {
   final String quote;

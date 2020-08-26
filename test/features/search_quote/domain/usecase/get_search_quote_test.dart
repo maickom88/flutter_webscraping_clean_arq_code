@@ -14,7 +14,7 @@ void main() {
 
   setUp(() {
     repository = MockQuoteRepository();
-    usecase = GetSearchQuote(repository);
+    usecase = GetSearchQuote(repository: repository);
   });
 
   test('A class of type "Quote" must be returned', () async {

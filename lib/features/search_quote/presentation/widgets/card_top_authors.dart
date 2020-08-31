@@ -10,6 +10,7 @@ class CardTopAuthors extends StatelessWidget {
   const CardTopAuthors(
       {Key key, this.imageNetwork, this.author, this.urlDetails})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,6 +39,14 @@ class CardTopAuthors extends StatelessWidget {
                 child: Image.network(
                   imageNetwork,
                   fit: BoxFit.cover,
+                  loadingBuilder: (build, widget, event) {
+                    if (event == null) return widget;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

@@ -1,30 +1,46 @@
-import 'dart:io';
-
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/errors/failure.dart';
-import '../../domain/entities/quote.dart';
 import '../../domain/usecases/get_search_quote.dart';
+import '../../domain/usecases/get_top_authors.dart';
 
 class HomeController extends GetxController {
-  final GetSearchQuote usecase;
+  final GetSearchQuote usecaseGetSearchQuote;
+  final GetTopAuthors usecaseGetAyuthors;
 
   HomeController({
-    @required this.usecase,
+    @required this.usecaseGetAyuthors,
+    @required this.usecaseGetSearchQuote,
   });
 
   RxList quotesList = [].obs;
+  RxList authorsList = [].obs;
   Failure failure;
+  RxString search = ''.obs;
+  RxBool load = false.obs;
 
   Future<void> getQuotes(String search) async {
-    final result = await usecase(search);
+    final result = await usecaseGetSearchQuote(search);
+    result.fold((l) {
+      failure = l;
+      update();
+      load.value = false;
+      print(l);
+    }, (r) {
+      quotesList.value = r;
+      load.value = false;
+    });
+  }
+
+  Future<void> getTopAuthor() async {
+    final result = await usecaseGetAyuthors();
     result.fold((l) {
       failure = l;
       update();
       print(l);
     }, (r) {
-      quotesList.value = r;
+      authorsList.value = r;
     });
   }
 }

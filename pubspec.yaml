@@ -18,6 +18,8 @@ dependencies:
   equatable: ^1.0.1
   effective_dart: ^1.2.0
   google_fonts: ^1.1.0
+  shimmer: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
